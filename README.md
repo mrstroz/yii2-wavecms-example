@@ -3,7 +3,7 @@ UNDER DEV !!!
 
 
 # yii2-wavecms-example
-Base module for [WaveCMS](https://github.com/mrstroz/yii2-wavecms). Full example how to build modules for WaveCMS.
+Example module for [WaveCMS](https://github.com/mrstroz/yii2-wavecms). Full example how to build modules for WaveCMS.
 
 Installation
 ------------

@@ -18,12 +18,13 @@ class ItemController extends Controller
         $this->view->params['h1'] = 'Items';
 
         $this->dataProvider = new ActiveDataProvider(array(
-            'query' => ExampleItem::find()
+            'query' => ExampleItem::find()->with(['category'])
         ));
 
         $this->columns = array(
             'id',
             'title',
+            'categoryName',
             [
                 'class' => ActionColumn::className(),
             ],
