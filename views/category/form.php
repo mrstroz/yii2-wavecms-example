@@ -1,11 +1,12 @@
 <?php
 
 use mrstroz\wavecms\base\helpers\FormHelper;
+use mrstroz\wavecms\base\helpers\WavecmsForm;
 use yii\bootstrap\ActiveForm;
 
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = WavecmsForm::begin(); ?>
 
 <div class="row">
 
@@ -29,4 +30,4 @@ use yii\bootstrap\ActiveForm;
 
 <?= FormHelper::saveButton() ?>
 
-<?php ActiveForm::end(); ?>
+<?php WavecmsForm::end(); ?>

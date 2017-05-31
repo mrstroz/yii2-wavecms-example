@@ -43,21 +43,17 @@ class ExampleItem extends \yii\db\ActiveRecord
             [
                 'class' => ImageBehavior::className(),
                 'folderAbove' => true,
-                'fields' => [
-                    'image' => [
-                        'folder' => 'images',
-                        'sizes' => [
-                            [200, null],
-                            [100, 100]
-                        ]
-                    ],
-                    'image_header' => [
-                        'folder' => 'images',
-                        'sizes' => [
-                            [600, 300]
-                        ]
-                    ]
+                'attribute' => 'image',
+                'folder' => 'images',
+                'sizes' => [
+                    [200, null],
+                    [100, 100]
                 ]
+            ],
+            [
+                'class' => ImageBehavior::className(),
+                'folderAbove' => true,
+                'attribute' => 'image_header',
             ]
         ];
     }

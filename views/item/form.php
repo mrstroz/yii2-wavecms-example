@@ -6,13 +6,16 @@ use kartik\select2\Select2;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\ImageWidget;
 use mrstroz\wavecms\base\helpers\PanelWidget;
+use mrstroz\wavecms\base\helpers\WavecmsForm;
 use mrstroz\wavecms\example\models\ExampleCategory;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Tabs;
 
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = WavecmsForm::begin(); ?>
 
+<?php ob_start(); ?>
 <div class="row">
 
     <div class="col-md-4">
@@ -23,6 +26,13 @@ use yii\bootstrap\ActiveForm;
         ]); ?>
         <?php PanelWidget::end(); ?>
 
+        <?php PanelWidget::begin(['heading' => 'Date picker']); ?>
+        <?php echo $form->field($model, 'date_picker')->widget(DatePicker::className(), [
+            'pluginOptions' => [
+                'format' => 'yyyy-mm-dd'
+            ]
+        ]); ?>
+        <?php PanelWidget::end(); ?>
 
     </div>
 
@@ -53,13 +63,7 @@ use yii\bootstrap\ActiveForm;
         ) ?>
         <?php PanelWidget::end(); ?>
 
-        <?php PanelWidget::begin(['heading' => 'Date picker']); ?>
-        <?php echo $form->field($model, 'date_picker')->widget(DatePicker::className(), [
-            'pluginOptions' => [
-                'format' => 'yyyy-mm-dd'
-            ]
-        ]); ?>
-        <?php PanelWidget::end(); ?>
+
     </div>
 
     <div class="col-md-4">
@@ -73,6 +77,13 @@ use yii\bootstrap\ActiveForm;
     </div>
 </div>
 
+<?php
+$tab1 = ob_get_contents();
+ob_end_clean();
+?>
+
+<?php ob_start(); ?>
+
 <div class="row">
     <div class="col-md-12">
         <?php PanelWidget::begin(['heading' => 'CKEditor']); ?>
@@ -84,7 +95,28 @@ use yii\bootstrap\ActiveForm;
     </div>
 </div>
 
+<?php
+$tab2 = ob_get_contents();
+ob_end_clean();
+?>
+
+<?php echo Tabs::widget([
+    'items' => [
+        [
+            'label' => 'General',
+            'content' => $tab1,
+            'active' => true
+        ],
+        [
+            'label' => 'Text',
+            'content' => $tab2
+        ]
+    ]
+]);
+
+?>
+
 
 <?= FormHelper::saveButton() ?>
 
-<?php ActiveForm::end(); ?>
+<?php WavecmsForm::end(); ?>
