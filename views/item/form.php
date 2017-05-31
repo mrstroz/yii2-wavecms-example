@@ -4,6 +4,7 @@ use dosamigos\ckeditor\CKEditor;
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
 use mrstroz\wavecms\base\helpers\FormHelper;
+use mrstroz\wavecms\base\helpers\ImageWidget;
 use mrstroz\wavecms\base\helpers\PanelWidget;
 use mrstroz\wavecms\example\models\ExampleCategory;
 use yii\bootstrap\ActiveForm;
@@ -22,9 +23,7 @@ use yii\bootstrap\ActiveForm;
         ]); ?>
         <?php PanelWidget::end(); ?>
 
-        <?php PanelWidget::begin(['heading' => 'Images', 'panel_class' => 'panel-success']); ?>
-        <?= $form->field($model, 'image')->fileInput() ?>
-        <?php PanelWidget::end(); ?>
+
     </div>
 
     <div class="col-md-4">
@@ -60,6 +59,16 @@ use yii\bootstrap\ActiveForm;
                 'format' => 'yyyy-mm-dd'
             ]
         ]); ?>
+        <?php PanelWidget::end(); ?>
+    </div>
+
+    <div class="col-md-4">
+        <?php PanelWidget::begin(['heading' => 'Images', 'panel_class' => 'panel-success']); ?>
+        <?= $form->field($model, 'image')->widget(ImageWidget::className()) ?>
+        <?php PanelWidget::end(); ?>
+
+        <?php PanelWidget::begin(['heading' => 'Images 2']); ?>
+        <?= $form->field($model, 'image_header')->widget(ImageWidget::className()) ?>
         <?php PanelWidget::end(); ?>
     </div>
 </div>

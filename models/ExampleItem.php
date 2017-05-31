@@ -21,6 +21,7 @@ use mrstroz\wavecms\base\behaviors\ImageBehavior;
  * @property string $checkbox_list
  * @property string $date_picker
  * @property string image
+ * @property string image_header
  */
 class ExampleItem extends \yii\db\ActiveRecord
 {
@@ -41,12 +42,19 @@ class ExampleItem extends \yii\db\ActiveRecord
             ],
             [
                 'class' => ImageBehavior::className(),
+                'folderAbove' => true,
                 'fields' => [
                     'image' => [
                         'folder' => 'images',
                         'sizes' => [
-                            ['resize', 100, 100],
-                            ['crop', 50, 50]
+                            [200, null],
+                            [100, 100]
+                        ]
+                    ],
+                    'image_header' => [
+                        'folder' => 'images',
+                        'sizes' => [
+                            [600, 300]
                         ]
                     ]
                 ]
@@ -66,6 +74,7 @@ class ExampleItem extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 255],
             [['title'], 'required'],
             [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['image_header'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }
 
