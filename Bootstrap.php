@@ -27,7 +27,7 @@ class Bootstrap implements BootstrapInterface
                 ],
                 [
                     'label' => FontAwesome::icon('pencil-square-o') . 'Page',
-                    'url' => ['/example/page/index']
+                    'url' => ['/example/page/page']
                 ],
 
             ]

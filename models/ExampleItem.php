@@ -4,6 +4,7 @@ namespace mrstroz\wavecms\example\models;
 
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
+use mrstroz\wavecms\base\db\ActiveRecord;
 
 
 /**
@@ -23,7 +24,7 @@ use mrstroz\wavecms\base\behaviors\ImageBehavior;
  * @property string image
  * @property string image_header
  */
-class ExampleItem extends \yii\db\ActiveRecord
+class ExampleItem extends ActiveRecord
 {
     /**
      * @inheritdoc

@@ -2,7 +2,8 @@
 
 namespace mrstroz\wavecms\example\models;
 
-use Yii;
+use himiklab\sortablegrid\SortableGridBehavior;
+use mrstroz\wavecms\base\db\ActiveRecord;
 
 /**
  * This is the model class for table "example_category".
@@ -12,7 +13,7 @@ use Yii;
  * @property integer $sort
  * @property string $name
  */
-class ExampleCategory extends \yii\db\ActiveRecord
+class ExampleCategory extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -20,6 +21,16 @@ class ExampleCategory extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'example_category';
+    }
+
+    public function behaviors()
+    {
+        return [
+            'sort' => [
+                'class' => SortableGridBehavior::className(),
+                'sortableAttribute' => 'sort'
+            ],
+        ];
     }
 
     /**

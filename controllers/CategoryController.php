@@ -3,10 +3,9 @@
 namespace mrstroz\wavecms\example\controllers;
 
 use mrstroz\wavecms\base\grid\ActionColumn;
+use mrstroz\wavecms\base\grid\PublishColumn;
 use mrstroz\wavecms\base\web\Controller;
 use mrstroz\wavecms\example\models\ExampleCategory;
-use yii\data\ActiveDataProvider;
-use yii\helpers\Html;
 
 class CategoryController extends Controller
 {
@@ -16,17 +15,18 @@ class CategoryController extends Controller
         parent::init();
 
         $this->view->params['h1'] = 'Categories';
+        $this->query = ExampleCategory::find();
 
-        $this->dataProvider = new ActiveDataProvider(array(
-            'query' => ExampleCategory::find()
-        ));
+        $this->sort = true;
 
         $this->columns = array(
-            'id',
             'name',
             [
-                'class' => ActionColumn::className(),
+                'class' => PublishColumn::className()
             ],
+            [
+                'class' => ActionColumn::className(),
+            ]
         );
     }
 

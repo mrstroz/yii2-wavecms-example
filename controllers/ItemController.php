@@ -3,8 +3,10 @@
 namespace mrstroz\wavecms\example\controllers;
 
 use mrstroz\wavecms\base\grid\ActionColumn;
+use mrstroz\wavecms\base\grid\PublishColumn;
 use mrstroz\wavecms\base\web\Controller;
 use mrstroz\wavecms\example\models\ExampleItem;
+use mrstroz\wavecms\example\models\ExampleItemSearch;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 
@@ -13,22 +15,31 @@ class ItemController extends Controller
 
     public function init()
     {
-        parent::init();
-
         $this->view->params['h1'] = 'Items';
+        $this->query = ExampleItem::find()->joinWith(['category']);
 
-        $this->dataProvider = new ActiveDataProvider(array(
-            'query' => ExampleItem::find()->with(['category'])
-        ));
+        $this->dataProvider = new ActiveDataProvider([
+            'query' => $this->query,
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);
 
         $this->columns = array(
             'id',
             'title',
             'categoryName',
             [
+                'class' => PublishColumn::className(),
+            ],
+            [
                 'class' => ActionColumn::className(),
             ],
         );
+
+        $this->filterModel = new ExampleItemSearch();
+
+        parent::init();
     }
 
     public function actionIndex()
