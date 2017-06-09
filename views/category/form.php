@@ -1,8 +1,8 @@
 <?php
 
 use mrstroz\wavecms\base\helpers\FormHelper;
-use mrstroz\wavecms\base\helpers\PanelWidget;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
+use mrstroz\wavecms\base\widgets\PanelWidget;
 
 ?>
 

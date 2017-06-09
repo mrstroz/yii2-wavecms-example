@@ -4,6 +4,7 @@ namespace mrstroz\wavecms\example\models;
 
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
+use mrstroz\wavecms\base\behaviors\SubListBehavior;
 use mrstroz\wavecms\base\db\ActiveRecord;
 
 
@@ -43,7 +44,6 @@ class ExampleItem extends ActiveRecord
             ],
             [
                 'class' => ImageBehavior::className(),
-                'folderAbove' => true,
                 'attribute' => 'image',
                 'folder' => 'images',
                 'sizes' => [
@@ -53,9 +53,14 @@ class ExampleItem extends ActiveRecord
             ],
             [
                 'class' => ImageBehavior::className(),
-                'folderAbove' => true,
                 'attribute' => 'image_header',
-            ]
+            ],
+            [
+                'class' => SubListBehavior::className(),
+                'list_id' => 'photos',
+                'route' => '/example/photo/sub-list',
+                'parentField' => 'parent_id'
+            ],
         ];
     }
 

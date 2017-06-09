@@ -4,11 +4,11 @@ use dosamigos\ckeditor\CKEditor;
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
 use mrstroz\wavecms\base\helpers\FormHelper;
-use mrstroz\wavecms\base\helpers\ImageWidget;
-use mrstroz\wavecms\base\helpers\PanelWidget;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
+use mrstroz\wavecms\base\widgets\ImageWidget;
+use mrstroz\wavecms\base\widgets\PanelWidget;
+use mrstroz\wavecms\base\widgets\SubListWidget;
 use mrstroz\wavecms\example\models\ExampleCategory;
-use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Tabs;
 
 ?>
@@ -76,6 +76,15 @@ use yii\bootstrap\Tabs;
         <?php PanelWidget::end(); ?>
     </div>
 </div>
+
+<?php PanelWidget::begin(['heading' => 'Photos']); ?>
+
+<?php echo SubListWidget::widget([
+    'list_id' => 'photos',
+    'model' => $model
+]); ?>
+
+<?php PanelWidget::end(); ?>
 
 <?php
 $tab1 = ob_get_contents();
