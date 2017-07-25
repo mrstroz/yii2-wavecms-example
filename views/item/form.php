@@ -5,6 +5,7 @@ use kartik\date\DatePicker;
 use kartik\select2\Select2;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
+use mrstroz\wavecms\base\widgets\FileWidget;
 use mrstroz\wavecms\base\widgets\ImageWidget;
 use mrstroz\wavecms\base\widgets\PanelWidget;
 use mrstroz\wavecms\base\widgets\SubListWidget;
@@ -73,6 +74,10 @@ use yii\bootstrap\Tabs;
 
         <?php PanelWidget::begin(['heading' => 'Images 2']); ?>
         <?= $form->field($model, 'image_header')->widget(ImageWidget::className()) ?>
+        <?php PanelWidget::end(); ?>
+
+        <?php PanelWidget::begin(['heading' => 'File']); ?>
+        <?= $form->field($model, 'file')->widget(FileWidget::className()) ?>
         <?php PanelWidget::end(); ?>
     </div>
 </div>

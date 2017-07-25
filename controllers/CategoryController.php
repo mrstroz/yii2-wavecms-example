@@ -7,6 +7,7 @@ use mrstroz\wavecms\base\grid\PublishColumn;
 use mrstroz\wavecms\base\grid\SortColumn;
 use mrstroz\wavecms\base\web\Controller;
 use mrstroz\wavecms\example\models\ExampleCategory;
+use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,13 @@ class CategoryController extends Controller
     {
         $this->heading = 'Categories';
         $this->query = ExampleCategory::find();
+
+        $this->dataProvider = new ActiveDataProvider([
+            'query' => $this->query,
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);
 
         $this->sort = true;
 

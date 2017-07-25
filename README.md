@@ -28,7 +28,7 @@ to the require section of your `composer.json` file.
 Required
 --------
 
-Update `config/main.php` (Yii2 advanced template) 
+Update `backend/config/main.php` (Yii2 advanced template) 
 ```
 
 'bootstrap' => [

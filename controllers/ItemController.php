@@ -9,6 +9,7 @@ use mrstroz\wavecms\example\models\ExampleItem;
 use mrstroz\wavecms\example\models\ExampleItemSearch;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 
 class ItemController extends Controller
 {
@@ -38,6 +39,11 @@ class ItemController extends Controller
         );
 
         $this->filterModel = new ExampleItemSearch();
+
+
+        $this->on(self::EVENT_BEFORE_MODEL_SAVE, function ($event) {
+        });
+
 
         parent::init();
     }

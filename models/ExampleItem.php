@@ -3,6 +3,7 @@
 namespace mrstroz\wavecms\example\models;
 
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
+use mrstroz\wavecms\base\behaviors\FileBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
 use mrstroz\wavecms\base\behaviors\SubListBehavior;
 use mrstroz\wavecms\base\db\ActiveRecord;
@@ -24,6 +25,7 @@ use mrstroz\wavecms\base\db\ActiveRecord;
  * @property string $date_picker
  * @property string image
  * @property string image_header
+ * @property string file
  */
 class ExampleItem extends ActiveRecord
 {
@@ -56,6 +58,10 @@ class ExampleItem extends ActiveRecord
                 'attribute' => 'image_header',
             ],
             [
+                'class' => FileBehavior::className(),
+                'attribute' => 'file',
+            ],
+            [
                 'class' => SubListBehavior::className(),
                 'list_id' => 'photos',
                 'route' => '/example/photo/sub-list',
@@ -77,6 +83,7 @@ class ExampleItem extends ActiveRecord
             [['title'], 'required'],
             [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['image_header'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf'],
         ];
     }
 
@@ -99,6 +106,7 @@ class ExampleItem extends ActiveRecord
             'checkbox_list' => 'Checkbox List',
             'date_picker' => 'Date Picker',
             'image' => 'Image',
+            'file' => 'File',
         ];
     }
 
