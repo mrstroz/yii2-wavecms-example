@@ -10,7 +10,7 @@ class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app)
     {
-        Yii::setAlias('@wavecmsbase', '@vendor/mrstroz/yii2-wavecms-base');
+        Yii::setAlias('@wavecms_example', '@vendor/mrstroz/yii2-wavecms-example');
 
         Yii::$app->params['nav'][] = [
             'label' => FontAwesome::icon('book') . 'Example module',

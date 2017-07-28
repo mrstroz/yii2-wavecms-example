@@ -2,6 +2,7 @@
 
 namespace mrstroz\wavecms\example\models;
 
+use dosamigos\translateable\TranslateableBehavior;
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
 use mrstroz\wavecms\base\behaviors\FileBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
@@ -29,6 +30,7 @@ use mrstroz\wavecms\base\db\ActiveRecord;
  */
 class ExampleItem extends ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -67,6 +69,12 @@ class ExampleItem extends ActiveRecord
                 'route' => '/example/photo/sub-list',
                 'parentField' => 'parent_id'
             ],
+            [ // name it the way you want
+                'class' => TranslateableBehavior::className(),
+                'translationAttributes' => [
+                    'translation'
+                ]
+            ],
         ];
     }
 
@@ -80,7 +88,7 @@ class ExampleItem extends ActiveRecord
             [['textarea', 'ckeditor'], 'string'],
             [['dropdown', 'checkbox_list', 'date_picker'], 'safe'],
             [['title'], 'string', 'max' => 255],
-            [['title'], 'required'],
+            [['title', 'translation'], 'required'],
             [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['image_header'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf'],
@@ -120,5 +128,10 @@ class ExampleItem extends ActiveRecord
         if ($this->category instanceof ExampleCategory) {
             return $this->category->name;
         }
+    }
+
+    public function getTranslations()
+    {
+        return $this->hasMany(ExampleItemLang::className(), ['example_item_id' => 'id']);
     }
 }

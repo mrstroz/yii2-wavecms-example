@@ -22,6 +22,7 @@ use yii\bootstrap\Tabs;
     <div class="col-md-4">
         <?php PanelWidget::begin(['heading' => 'Text elements']); ?>
         <?php echo $form->field($model, 'title'); ?>
+        <?php echo $form->field($model, 'translation')->hint('Translated field'); ?>
         <?php echo $form->field($model, 'textarea')->textarea([
             'rows' => 6
         ]); ?>
