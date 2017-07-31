@@ -1,8 +1,9 @@
 <?php
 
-use dosamigos\ckeditor\CKEditor;
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
 use mrstroz\wavecms\base\widgets\FileWidget;
@@ -102,10 +103,19 @@ ob_end_clean();
 <div class="row">
     <div class="col-md-12">
         <?php PanelWidget::begin(['heading' => 'CKEditor']); ?>
-        <?php echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
+        <?php /* echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
             'options' => ['rows' => 6],
             'preset' => 'basic'
-        ]); ?>
+        ]); */ ?>
+
+        <?php
+
+        echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
+            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'],['preset' => 'standard', 'inline' => false,]),
+        ]);
+
+        ?>
+
         <?php PanelWidget::end(); ?>
     </div>
 </div>
@@ -132,6 +142,6 @@ ob_end_clean();
 ?>
 
 
-<?= FormHelper::saveButton() ?>
+<?php FormHelper::saveButton() ?>
 
 <?php WavecmsForm::end(); ?>

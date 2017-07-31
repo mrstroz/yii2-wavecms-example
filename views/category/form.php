@@ -18,6 +18,6 @@ use mrstroz\wavecms\base\widgets\PanelWidget;
 </div>
 
 
-<?= FormHelper::saveButton() ?>
+<?php FormHelper::saveButton() ?>
 
 <?php WavecmsForm::end(); ?>

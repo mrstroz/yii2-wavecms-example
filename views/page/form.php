@@ -1,6 +1,7 @@
 <?php
 
-use dosamigos\ckeditor\CKEditor;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
 use mrstroz\wavecms\base\widgets\PanelWidget;
@@ -17,7 +18,7 @@ use mrstroz\wavecms\base\widgets\SubListWidget;
         <?php echo $form->field($model, 'title'); ?>
 
         <?php echo $form->field($model, 'text')->widget(CKEditor::className(), [
-            'options' => ['rows' => 6],
+            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'],['preset' => 'standard', 'inline' => false,]),
         ]); ?>
 
         <?php PanelWidget::end(); ?>
@@ -37,6 +38,6 @@ use mrstroz\wavecms\base\widgets\SubListWidget;
 </div>
 
 
-<?= FormHelper::saveButton() ?>
+<?php FormHelper::saveButton() ?>
 
 <?php WavecmsForm::end(); ?>
