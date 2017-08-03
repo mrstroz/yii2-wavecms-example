@@ -111,8 +111,8 @@ ob_end_clean();
         <?php
 
         echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
-            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'],['preset' => 'standard', 'inline' => false,]),
-        ]);
+            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], ['preset' => 'standard', 'inline' => false,]),
+        ])->hint('Translated field');
 
         ?>
 

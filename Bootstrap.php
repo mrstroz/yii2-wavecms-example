@@ -15,6 +15,9 @@ class Bootstrap implements BootstrapInterface
         Yii::$app->params['nav'][] = [
             'label' => FontAwesome::icon('book') . 'Example module',
             'url' => 'javascript: ;',
+            'options' => [
+                'class' => 'drop-down'
+            ],
             'position' => 90,
             'items' => [
                 [

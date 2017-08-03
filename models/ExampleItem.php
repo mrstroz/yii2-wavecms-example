@@ -72,7 +72,7 @@ class ExampleItem extends ActiveRecord
             [ // name it the way you want
                 'class' => TranslateableBehavior::className(),
                 'translationAttributes' => [
-                    'translation'
+                    'translation', 'ckeditor'
                 ]
             ],
         ];
