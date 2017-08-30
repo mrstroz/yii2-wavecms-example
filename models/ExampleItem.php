@@ -2,11 +2,11 @@
 
 namespace mrstroz\wavecms\example\models;
 
-use dosamigos\translateable\TranslateableBehavior;
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
 use mrstroz\wavecms\base\behaviors\FileBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
 use mrstroz\wavecms\base\behaviors\SubListBehavior;
+use mrstroz\wavecms\base\behaviors\TranslateBehavior;
 use mrstroz\wavecms\base\db\ActiveRecord;
 
 
@@ -70,7 +70,7 @@ class ExampleItem extends ActiveRecord
                 'parentField' => 'parent_id'
             ],
             [ // name it the way you want
-                'class' => TranslateableBehavior::className(),
+                'class' => TranslateBehavior::className(),
                 'translationAttributes' => [
                     'translation', 'ckeditor'
                 ]

@@ -19,6 +19,7 @@ class Bootstrap implements BootstrapInterface
                 'class' => 'drop-down'
             ],
             'position' => 90,
+            'permission' => 'example',
             'items' => [
                 [
                     'label' => FontAwesome::icon('list') . 'Items',

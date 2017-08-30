@@ -6,6 +6,7 @@ use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
+use mrstroz\wavecms\base\widgets\CKEditorWidget;
 use mrstroz\wavecms\base\widgets\FileWidget;
 use mrstroz\wavecms\base\widgets\ImageWidget;
 use mrstroz\wavecms\base\widgets\PanelWidget;
@@ -110,9 +111,7 @@ ob_end_clean();
 
         <?php
 
-        echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
-            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], ['preset' => 'standard', 'inline' => false,]),
-        ])->hint('Translated field');
+        echo $form->field($model, 'ckeditor')->widget(CKEditorWidget::className())->label(false)->hint('Translated field');
 
         ?>
 
