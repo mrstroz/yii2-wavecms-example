@@ -3,7 +3,11 @@ UNDER DEV !!!
 
 
 # yii2-wavecms-example
-Example module for [WaveCMS](https://github.com/mrstroz/yii2-wavecms). Full example how to build modules for WaveCMS.
+Example module for **WaveCMS**
+
+**This module required [Yii 2 WaveCMS User](https://github.com/mrstroz/yii2-wavecms-user).** 
+
+Please do all install steps first from [Yii 2 WaveCMS User](https://github.com/mrstroz/yii2-wavecms-user).
 
 Installation
 ------------
@@ -13,13 +17,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Run
 
 ```
-php composer.phar require --prefer-source "[package/name]" "dev-master"
+composer require --prefer-source "mrstroz/yii2-wavecms-example" "dev-master"
 ```
 
 or add
 
 ```
-"[package/name]": "dev-master"
+"mrstroz/yii2-wavecms-example": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -28,20 +32,21 @@ to the require section of your `composer.json` file.
 Required
 --------
 
-Update `backend/config/main.php` (Yii2 advanced template) 
+1. Update `backend/config/main.php` (Yii2 advanced template) 
 ```
-
 'bootstrap' => [
-    ...
+    // ...
     'mrstroz\wavecms\example\Bootstrap'
-    ...
 ],
 'modules' => [
-    ...
-    'mrstroz\wavecms\example\Module'
-    ...
+    // ...
+    'example' => [
+        'class' => 'mrstroz\wavecms\example\Module'
+    ],
 ],
-    
+```
 
-
+2. Run migration 
+```
+yii migrate --migrationPath=@vendor/mrstroz/yii2-wavecms-example/migrations
 ```
