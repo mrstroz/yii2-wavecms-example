@@ -2,8 +2,6 @@
 
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
-use mihaildev\ckeditor\CKEditor;
-use mihaildev\elfinder\ElFinder;
 use mrstroz\wavecms\base\helpers\FormHelper;
 use mrstroz\wavecms\base\helpers\WavecmsForm;
 use mrstroz\wavecms\base\widgets\CKEditorWidget;
@@ -17,6 +15,13 @@ use yii\bootstrap\Tabs;
 ?>
 
 <?php $form = WavecmsForm::begin(); ?>
+
+<?php
+
+//echo $form->field($model, 'asd');
+
+?>
+
 
 <?php ob_start(); ?>
 <div class="row">
@@ -71,6 +76,7 @@ use yii\bootstrap\Tabs;
     </div>
 
     <div class="col-md-4">
+
         <?php PanelWidget::begin(['heading' => 'Images', 'panel_class' => 'panel-success']); ?>
         <?= $form->field($model, 'image')->widget(ImageWidget::className()) ?>
         <?php PanelWidget::end(); ?>
@@ -103,11 +109,29 @@ ob_end_clean();
 
 <div class="row">
     <div class="col-md-12">
+        <?php PanelWidget::begin(['heading' => 'Settings']); ?>
+
+        <?php echo $form->field($model, 'settings_title'); ?>
+
+        <?php PanelWidget::end(); ?>
+    </div>
+</div>
+
+<?php
+$tab2 = ob_get_contents();
+ob_end_clean();
+?>
+
+<?php ob_start(); ?>
+
+<div class="row">
+    <div class="col-md-12">
         <?php PanelWidget::begin(['heading' => 'CKEditor']); ?>
         <?php /* echo $form->field($model, 'ckeditor')->widget(CKEditor::className(), [
             'options' => ['rows' => 6],
             'preset' => 'basic'
         ]); */ ?>
+
 
         <?php
 
@@ -120,7 +144,7 @@ ob_end_clean();
 </div>
 
 <?php
-$tab2 = ob_get_contents();
+$tab3 = ob_get_contents();
 ob_end_clean();
 ?>
 
@@ -132,8 +156,13 @@ ob_end_clean();
             'active' => true
         ],
         [
-            'label' => 'Text',
+            'label' => 'Settings',
             'content' => $tab2
+        ]
+        ,
+        [
+            'label' => 'Text',
+            'content' => $tab3
         ]
     ]
 ]);

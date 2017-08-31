@@ -5,6 +5,7 @@ namespace mrstroz\wavecms\example\models;
 use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
 use mrstroz\wavecms\base\behaviors\FileBehavior;
 use mrstroz\wavecms\base\behaviors\ImageBehavior;
+use mrstroz\wavecms\base\behaviors\SettingsBehavior;
 use mrstroz\wavecms\base\behaviors\SubListBehavior;
 use mrstroz\wavecms\base\behaviors\TranslateBehavior;
 use mrstroz\wavecms\base\db\ActiveRecord;
@@ -27,9 +28,12 @@ use mrstroz\wavecms\base\db\ActiveRecord;
  * @property string image
  * @property string image_header
  * @property string file
+ * @property string settings_title
  */
 class ExampleItem extends ActiveRecord
 {
+
+    public $settings_title;
 
     /**
      * @inheritdoc
@@ -42,11 +46,11 @@ class ExampleItem extends ActiveRecord
     public function behaviors()
     {
         return [
-            [
+            'checkbox_list' => [
                 'class' => CheckboxListBehavior::className(),
                 'fields' => ['checkbox_list']
             ],
-            [
+            'image' => [
                 'class' => ImageBehavior::className(),
                 'attribute' => 'image',
                 'folder' => 'images',
@@ -55,24 +59,30 @@ class ExampleItem extends ActiveRecord
                     [100, 100]
                 ]
             ],
-            [
+            'image_header' => [
                 'class' => ImageBehavior::className(),
                 'attribute' => 'image_header',
             ],
-            [
+            'file' => [
                 'class' => FileBehavior::className(),
                 'attribute' => 'file',
             ],
-            [
+            'photos' => [
                 'class' => SubListBehavior::className(),
                 'list_id' => 'photos',
                 'route' => '/example/photo/sub-list',
                 'parentField' => 'parent_id'
             ],
-            [ // name it the way you want
+            'translate' => [
                 'class' => TranslateBehavior::className(),
                 'translationAttributes' => [
                     'translation', 'ckeditor'
+                ]
+            ],
+            'settings' => [
+                'class' => SettingsBehavior::className(),
+                'settingsAttributes' => [
+                    'settings_title'
                 ]
             ],
         ];
@@ -89,9 +99,9 @@ class ExampleItem extends ActiveRecord
             [['dropdown', 'checkbox_list', 'date_picker'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['title', 'translation'], 'required'],
-            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['image_header'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['image', 'image_header'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf'],
+            [['settings_title'], 'required']
         ];
     }
 
@@ -115,6 +125,7 @@ class ExampleItem extends ActiveRecord
             'date_picker' => 'Date Picker',
             'image' => 'Image',
             'file' => 'File',
+            'settings_title' => 'Settings title',
         ];
     }
 
