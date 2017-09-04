@@ -9,21 +9,17 @@ use mrstroz\wavecms\base\widgets\FileWidget;
 use mrstroz\wavecms\base\widgets\ImageWidget;
 use mrstroz\wavecms\base\widgets\PanelWidget;
 use mrstroz\wavecms\base\widgets\SubListWidget;
+use mrstroz\wavecms\base\widgets\TabsWidget;
+use mrstroz\wavecms\base\widgets\TabWidget;
 use mrstroz\wavecms\example\models\ExampleCategory;
-use yii\bootstrap\Tabs;
 
 ?>
 
 <?php $form = WavecmsForm::begin(); ?>
 
-<?php
+<?php TabsWidget::begin(); ?>
 
-//echo $form->field($model, 'asd');
-
-?>
-
-
-<?php ob_start(); ?>
+<?php TabWidget::begin(['heading' => 'General']); ?>
 <div class="row">
 
     <div class="col-md-4">
@@ -100,12 +96,9 @@ use yii\bootstrap\Tabs;
 
 <?php PanelWidget::end(); ?>
 
-<?php
-$tab1 = ob_get_contents();
-ob_end_clean();
-?>
+<?php TabWidget::end(); ?>
 
-<?php ob_start(); ?>
+<?php TabWidget::begin(['heading' => 'Settings']); ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -117,12 +110,9 @@ ob_end_clean();
     </div>
 </div>
 
-<?php
-$tab2 = ob_get_contents();
-ob_end_clean();
-?>
+<?php TabWidget::end(); ?>
 
-<?php ob_start(); ?>
+<?php TabWidget::begin(['heading' => 'CKEditor']); ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -143,33 +133,8 @@ ob_end_clean();
     </div>
 </div>
 
-<?php
-$tab3 = ob_get_contents();
-ob_end_clean();
-?>
+<?php TabWidget::end(); ?>
 
-<?php echo Tabs::widget([
-    'items' => [
-        [
-            'label' => 'General',
-            'content' => $tab1,
-            'active' => true
-        ],
-        [
-            'label' => 'Settings',
-            'content' => $tab2
-        ]
-        ,
-        [
-            'label' => 'Text',
-            'content' => $tab3
-        ]
-    ]
-]);
-
-?>
-
-
+<?php TabsWidget::end(); ?>
 <?php FormHelper::saveButton() ?>
-
 <?php WavecmsForm::end(); ?>
