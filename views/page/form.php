@@ -27,7 +27,7 @@ use mrstroz\wavecms\base\widgets\SubListWidget;
         <?php PanelWidget::begin(['heading' => 'Photos']); ?>
 
         <?php echo SubListWidget::widget([
-            'list_id' => 'photos',
+            'listId' => 'photos',
             'model' => $model
         ]); ?>
 

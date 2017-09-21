@@ -90,7 +90,7 @@ use mrstroz\wavecms\example\models\ExampleCategory;
 <?php PanelWidget::begin(['heading' => 'Photos']); ?>
 
 <?php echo SubListWidget::widget([
-    'list_id' => 'photos',
+    'listId' => 'photos',
     'model' => $model
 ]); ?>
 

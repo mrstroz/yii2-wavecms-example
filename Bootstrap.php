@@ -18,7 +18,7 @@ class Bootstrap implements BootstrapInterface
             'options' => [
                 'class' => 'drop-down'
             ],
-            'position' => 90,
+            'position' => 8000,
             'permission' => 'example',
             'items' => [
                 [

@@ -20,7 +20,7 @@ class ExamplePage extends ActiveRecord
         return [
             [
                 'class' => SubListBehavior::className(),
-                'list_id' => 'photos',
+                'listId' => 'photos',
                 'route' => '/example/photo-page/sub-list',
                 'parentField' => 'parent_id'
             ],

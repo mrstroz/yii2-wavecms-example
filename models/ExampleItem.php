@@ -69,7 +69,7 @@ class ExampleItem extends ActiveRecord
             ],
             'photos' => [
                 'class' => SubListBehavior::className(),
-                'list_id' => 'photos',
+                'listId' => 'photos',
                 'route' => '/example/photo/sub-list',
                 'parentField' => 'parent_id'
             ],
