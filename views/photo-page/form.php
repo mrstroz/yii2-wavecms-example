@@ -1,9 +1,9 @@
 <?php
 
-use mrstroz\wavecms\base\helpers\FormHelper;
-use mrstroz\wavecms\base\helpers\WavecmsForm;
-use mrstroz\wavecms\base\widgets\ImageWidget;
-use mrstroz\wavecms\base\widgets\PanelWidget;
+use mrstroz\wavecms\components\helpers\FormHelper;
+use mrstroz\wavecms\components\helpers\WavecmsForm;
+use mrstroz\wavecms\components\widgets\ImageWidget;
+use mrstroz\wavecms\components\widgets\PanelWidget;
 
 ?>
 

@@ -2,8 +2,8 @@
 
 namespace mrstroz\wavecms\example\models;
 
-use mrstroz\wavecms\base\behaviors\SubListBehavior;
-use mrstroz\wavecms\base\db\ActiveRecord;
+use mrstroz\wavecms\components\behaviors\SubListBehavior;
+use mrstroz\wavecms\db\ActiveRecord;
 
 class ExamplePage extends ActiveRecord
 {

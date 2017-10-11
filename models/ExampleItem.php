@@ -2,13 +2,13 @@
 
 namespace mrstroz\wavecms\example\models;
 
-use mrstroz\wavecms\base\behaviors\CheckboxListBehavior;
-use mrstroz\wavecms\base\behaviors\FileBehavior;
-use mrstroz\wavecms\base\behaviors\ImageBehavior;
-use mrstroz\wavecms\base\behaviors\SettingsBehavior;
-use mrstroz\wavecms\base\behaviors\SubListBehavior;
-use mrstroz\wavecms\base\behaviors\TranslateBehavior;
-use mrstroz\wavecms\base\db\ActiveRecord;
+use mrstroz\wavecms\components\behaviors\CheckboxListBehavior;
+use mrstroz\wavecms\components\behaviors\FileBehavior;
+use mrstroz\wavecms\components\behaviors\ImageBehavior;
+use mrstroz\wavecms\components\behaviors\SettingsBehavior;
+use mrstroz\wavecms\components\behaviors\SubListBehavior;
+use mrstroz\wavecms\components\behaviors\TranslateBehavior;
+use mrstroz\wavecms\db\ActiveRecord;
 
 
 /**

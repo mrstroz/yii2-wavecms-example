@@ -2,10 +2,10 @@
 
 namespace mrstroz\wavecms\example\controllers;
 
-use mrstroz\wavecms\base\grid\ActionColumn;
-use mrstroz\wavecms\base\grid\PublishColumn;
-use mrstroz\wavecms\base\grid\SortColumn;
-use mrstroz\wavecms\base\web\Controller;
+use mrstroz\wavecms\components\grid\ActionColumn;
+use mrstroz\wavecms\components\grid\PublishColumn;
+use mrstroz\wavecms\components\grid\SortColumn;
+use mrstroz\wavecms\components\web\Controller;
 use mrstroz\wavecms\example\models\ExampleCategory;
 use yii\data\ActiveDataProvider;
 

@@ -2,20 +2,22 @@
 
 namespace mrstroz\wavecms\example\controllers;
 
-use mrstroz\wavecms\base\grid\ActionColumn;
-use mrstroz\wavecms\base\grid\PublishColumn;
-use mrstroz\wavecms\base\web\Controller;
+use mrstroz\wavecms\components\grid\ActionColumn;
+use mrstroz\wavecms\components\grid\PublishColumn;
+use mrstroz\wavecms\components\web\Controller;
 use mrstroz\wavecms\example\models\ExampleItem;
 use mrstroz\wavecms\example\models\ExampleItemSearch;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
-use yii\helpers\VarDumper;
 
 class ItemController extends Controller
 {
 
     public function init()
     {
+
+        $this->forwardParams = ['test'];
+
         $this->heading = 'Items';
         $this->query = ExampleItem::find()->joinWith(['category']);
 

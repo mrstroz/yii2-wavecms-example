@@ -2,15 +2,15 @@
 
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
-use mrstroz\wavecms\base\helpers\FormHelper;
-use mrstroz\wavecms\base\helpers\WavecmsForm;
-use mrstroz\wavecms\base\widgets\CKEditorWidget;
-use mrstroz\wavecms\base\widgets\FileWidget;
-use mrstroz\wavecms\base\widgets\ImageWidget;
-use mrstroz\wavecms\base\widgets\PanelWidget;
-use mrstroz\wavecms\base\widgets\SubListWidget;
-use mrstroz\wavecms\base\widgets\TabsWidget;
-use mrstroz\wavecms\base\widgets\TabWidget;
+use mrstroz\wavecms\components\helpers\FormHelper;
+use mrstroz\wavecms\components\helpers\WavecmsForm;
+use mrstroz\wavecms\components\widgets\CKEditorWidget;
+use mrstroz\wavecms\components\widgets\FileWidget;
+use mrstroz\wavecms\components\widgets\ImageWidget;
+use mrstroz\wavecms\components\widgets\PanelWidget;
+use mrstroz\wavecms\components\widgets\SubListWidget;
+use mrstroz\wavecms\components\widgets\TabsWidget;
+use mrstroz\wavecms\components\widgets\TabWidget;
 use mrstroz\wavecms\example\models\ExampleCategory;
 
 ?>

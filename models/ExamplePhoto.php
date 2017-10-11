@@ -3,8 +3,8 @@
 namespace mrstroz\wavecms\example\models;
 
 use himiklab\sortablegrid\SortableGridBehavior;
-use mrstroz\wavecms\base\behaviors\ImageBehavior;
-use mrstroz\wavecms\base\db\ActiveRecord;
+use mrstroz\wavecms\components\behaviors\ImageBehavior;
+use mrstroz\wavecms\db\ActiveRecord;
 
 /**
  * This is the model class for table "example_photo".

@@ -2,7 +2,7 @@
 
 namespace mrstroz\wavecms\example\controllers;
 
-use mrstroz\wavecms\base\web\Controller;
+use mrstroz\wavecms\components\web\Controller;
 use mrstroz\wavecms\example\models\ExamplePage;
 
 class PageController extends Controller

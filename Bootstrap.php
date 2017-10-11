@@ -2,7 +2,7 @@
 
 namespace mrstroz\wavecms\example;
 
-use mrstroz\wavecms\base\helpers\FontAwesome;
+use mrstroz\wavecms\components\helpers\FontAwesome;
 use Yii;
 use yii\base\BootstrapInterface;
 
@@ -23,7 +23,11 @@ class Bootstrap implements BootstrapInterface
             'items' => [
                 [
                     'label' => FontAwesome::icon('list') . 'Items',
-                    'url' => ['/example/item/index']
+                    'url' => ['/example/item/index', 'test' => 1]
+                ],
+                [
+                    'label' => FontAwesome::icon('list') . 'Items',
+                    'url' => ['/example/item/index', 'test' => 2]
                 ],
                 [
                     'label' => FontAwesome::icon('tag') . 'Categories',
