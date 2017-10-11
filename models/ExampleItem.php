@@ -8,7 +8,7 @@ use mrstroz\wavecms\components\behaviors\ImageBehavior;
 use mrstroz\wavecms\components\behaviors\SettingsBehavior;
 use mrstroz\wavecms\components\behaviors\SubListBehavior;
 use mrstroz\wavecms\components\behaviors\TranslateBehavior;
-use mrstroz\wavecms\db\ActiveRecord;
+use yii\db\ActiveRecord;
 
 
 /**

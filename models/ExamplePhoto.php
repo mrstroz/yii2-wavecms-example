@@ -4,7 +4,7 @@ namespace mrstroz\wavecms\example\models;
 
 use himiklab\sortablegrid\SortableGridBehavior;
 use mrstroz\wavecms\components\behaviors\ImageBehavior;
-use mrstroz\wavecms\db\ActiveRecord;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "example_photo".

@@ -3,7 +3,7 @@
 namespace mrstroz\wavecms\example\models;
 
 use mrstroz\wavecms\components\behaviors\SubListBehavior;
-use mrstroz\wavecms\db\ActiveRecord;
+use yii\db\ActiveRecord;
 
 class ExamplePage extends ActiveRecord
 {
