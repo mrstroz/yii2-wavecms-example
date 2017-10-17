@@ -26,10 +26,6 @@ class Bootstrap implements BootstrapInterface
                     'url' => ['/example/item/index', 'test' => 1]
                 ],
                 [
-                    'label' => FontAwesome::icon('list') . 'Items',
-                    'url' => ['/example/item/index', 'test' => 2]
-                ],
-                [
                     'label' => FontAwesome::icon('tag') . 'Categories',
                     'url' => ['/example/category/index']
                 ],
@@ -37,6 +33,10 @@ class Bootstrap implements BootstrapInterface
                     'label' => FontAwesome::icon('pencil-square-o') . 'Page',
                     'url' => ['/example/page/page']
                 ],
+                [
+                    'label' => FontAwesome::icon('cog') . 'Settings',
+                    'url' => ['/example/settings/settings']
+                ]
 
             ]
         ];

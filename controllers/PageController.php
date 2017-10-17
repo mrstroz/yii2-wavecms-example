@@ -10,6 +10,7 @@ class PageController extends Controller
 
     public function init()
     {
+        $this->type = 'page';
         $this->heading = 'Page type';
         $this->query = ExamplePage::find();
 
