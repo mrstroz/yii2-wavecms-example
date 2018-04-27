@@ -3,6 +3,7 @@
 namespace mrstroz\wavecms\example\controllers;
 
 use mrstroz\wavecms\components\grid\ActionColumn;
+use mrstroz\wavecms\components\grid\CheckboxColumn;
 use mrstroz\wavecms\components\grid\PublishColumn;
 use mrstroz\wavecms\components\grid\SortColumn;
 use mrstroz\wavecms\components\web\Controller;
@@ -27,12 +28,15 @@ class CategoryController extends Controller
         $this->sort = true;
 
         $this->columns = array(
+            [
+                'class' => CheckboxColumn::class,
+            ],
             'name',
             [
-                'class' => SortColumn::className(),
+                'class' => SortColumn::class,
             ],
             [
-                'class' => PublishColumn::className()
+                'class' => PublishColumn::class
             ],
             [
                 'class' => ActionColumn::className(),

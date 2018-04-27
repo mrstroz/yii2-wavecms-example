@@ -12,7 +12,31 @@ class Bootstrap implements BootstrapInterface
     {
         Yii::setAlias('@wavecms_example', '@vendor/mrstroz/yii2-wavecms-example');
 
-        Yii::$app->params['nav'][] = [
+
+        if ($app->id === 'app-backend') {
+            if (!Yii::$app->user->isGuest) {
+                Yii::$app->language = Yii::$app->user->identity->lang;
+            }
+        }
+
+        /** @var Module $module */
+        if ($app->hasModule('wavecms') && ($module = $app->getModule('wavecms-example')) instanceof Module) {
+
+            if ($app->id === 'app-backend') {
+
+                $this->initNavigation();
+            }
+        }
+
+
+    }
+
+    /**
+     * Init left navigation
+     */
+    protected function initNavigation()
+    {
+        Yii::$app->params['nav']['wavecms_example'] = [
             'label' => FontAwesome::icon('book') . 'Example module',
             'url' => 'javascript: ;',
             'options' => [
@@ -23,19 +47,19 @@ class Bootstrap implements BootstrapInterface
             'items' => [
                 [
                     'label' => FontAwesome::icon('list') . 'Items',
-                    'url' => ['/example/item/index', 'test' => 1]
+                    'url' => ['/wavecms-example/item/index', 'test' => 1]
                 ],
                 [
                     'label' => FontAwesome::icon('tag') . 'Categories',
-                    'url' => ['/example/category/index']
+                    'url' => ['/wavecms-example/category/index']
                 ],
                 [
                     'label' => FontAwesome::icon('pencil-square-o') . 'Page',
-                    'url' => ['/example/page/page']
+                    'url' => ['/wavecms-example/page/page']
                 ],
                 [
                     'label' => FontAwesome::icon('cog') . 'Settings',
-                    'url' => ['/example/settings/settings']
+                    'url' => ['/wavecms-example/settings/settings']
                 ]
 
             ]

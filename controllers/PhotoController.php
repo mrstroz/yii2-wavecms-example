@@ -32,7 +32,7 @@ class PhotoController extends Controller
             ]
         );
 
-        NavHelper::$active[] = 'example/item/index';
+//        NavHelper::$active[] = 'example/item/index';
 
         parent::init();
     }

@@ -21,7 +21,7 @@ class ExamplePage extends ActiveRecord
             [
                 'class' => SubListBehavior::className(),
                 'listId' => 'photos',
-                'route' => '/example/photo-page/sub-list',
+                'route' => '/wavecms-example/photo-page/sub-list',
                 'parentField' => 'parent_id'
             ],
         ];
