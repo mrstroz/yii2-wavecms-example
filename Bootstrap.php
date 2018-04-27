@@ -54,7 +54,7 @@ class Bootstrap implements BootstrapInterface
                     'url' => ['/wavecms-example/category/index']
                 ],
                 [
-                    'label' => FontAwesome::icon('pencil-square-o') . 'Page',
+                    'label' => FontAwesome::icon('pencil-alt') . 'Page',
                     'url' => ['/wavecms-example/page/page']
                 ],
                 [
